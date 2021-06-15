@@ -2,6 +2,7 @@ export const TYPES = {
   App: Symbol.for('App'),
 
   ConfigService: Symbol.for('ConfigService'),
+  DependencyService: Symbol.for('DependencyService'),
   RouteService: Symbol.for('RouteService'),
   SwaggerService: Symbol.for('SwaggerService'),
 

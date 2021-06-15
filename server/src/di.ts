@@ -10,6 +10,7 @@ import {
   IConfigService, ConfigService,
   IRouteService, RouteService,
   ISwaggerService, SwaggerService,
+  IDependencyService, DependencyService,
 } from '@services';
 import {
   IPingRouter, PingRouter,
@@ -19,6 +20,7 @@ import {
 const DIContainer = new Container();
 DIContainer.bind<IApp>(TYPES.App).to(App).inSingletonScope();
 DIContainer.bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
+DIContainer.bind<IDependencyService>(TYPES.DependencyService).to(DependencyService).inSingletonScope();
 DIContainer.bind<IRouteService>(TYPES.RouteService).to(RouteService).inSingletonScope();
 DIContainer.bind<ISwaggerService>(TYPES.SwaggerService).to(SwaggerService).inSingletonScope();
 
