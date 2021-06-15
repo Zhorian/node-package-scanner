@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es6"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./build",
+    "paths": {
+      "@app": [
+        "app.ts"
+      ],
+      "@controllers": [
+        "controllers/index.ts"
+      ],
+      "@di": [
+        "di.ts"
+      ],
+      "@models": [
+        "models/index.ts"
+      ],
+      "@routing": [
+        "routing/index.ts"
+      ],
+      "@services": [
+        "services/index.ts"
+      ],
+      "@types": [
+        "types.ts"
+      ]
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2019",
+    "types": [
+      "jest",
+      "reflect-metadata"
+    ]
+  },
+  "include": [
+    "src",
+    "spec"
+  ]
+}

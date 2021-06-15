@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ $NODE_ENV = 'development' ]; then
+    echo "Deploying in development mode"
+    nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server.ts
+    exit 0
+fi
+
+echo "Deploying in production mode"
+ts-node --transpile-only src/server.ts

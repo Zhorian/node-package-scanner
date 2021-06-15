@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function run_npm_i {
+  if [ ! -d "./node_modules" ]; then
+    mkdir node_modules
+    chmod 777 ./node_modules
+  fi
+  npm prune
+  npm i
+}
+
+function say {
+  green="\033[0;32m"
+  default="\033[0m"
+  echo -e "${green}----> $@ ${default}"
+}
+
+function say_error {
+  red="\033[0;31m"
+  default="\033[0m"
+  echo -e "${red}----> $@ ${default}"
+}
+
+say "Getting server packages..."
+(
+  cd ./server
+  run_npm_i
+)
+say "Got server packages!"
+
+say "Building containers..."
+docker-compose build
+say "Containers built!"
+
+say "Starting up..."
+docker-compose up
+say "To the clouds!"

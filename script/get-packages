@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# (
+#   cd ./client
+#   npm prune
+#   npm i
+# )
+
+(
+  cd ./server
+  npm prune
+  npm i
+)
