@@ -18,7 +18,7 @@ describe('/api', () => {
 
     it('returns an object with a message stating "packageName not provided', () => {
       expect(subject.body).toStrictEqual({
-        message: 'packageName not provided',
+        message: 'packagename not provided',
       });
     });
   });
@@ -37,7 +37,7 @@ describe('/api', () => {
 
     it('returns an object with a message stating "versionOrTag not provided', () => {
       expect(subject.body).toStrictEqual({
-        message: 'versionOrTag not provided',
+        message: 'versionortag not provided',
       });
     });
   });

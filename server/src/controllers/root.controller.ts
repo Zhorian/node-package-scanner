@@ -25,14 +25,14 @@ export class RootController implements IRootController {
     if ((packagename ?? '') === '') {
       res
         .status(400)
-        .send({ message: 'packageName not provided' });
+        .send({ message: 'packagename not provided' });
       return;
     }
 
     if ((versionortag ?? '') === '') {
       res
         .status(400)
-        .send({ message: 'versionOrTag not provided' });
+        .send({ message: 'versionortag not provided' });
       return;
     }
 
