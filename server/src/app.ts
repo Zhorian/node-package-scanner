@@ -35,6 +35,30 @@ export class App {
 
   private setup = () => {
     this.app.use(bodyParserJson());
+
+    // This is to create a copy of the query parameter with a lowercase key
+    // unless it's already been provided.
+    this.app.use((req, res, next) => {
+      const { query } = req;
+
+      if (!query) {
+        next();
+        return;
+      }
+
+      Object.keys(query).forEach((key) => {
+        const loweredKey = key.toLowerCase();
+        if (query[loweredKey] !== undefined) {
+          return;
+        }
+
+        query[loweredKey] = query[key];
+        delete query[key];
+      });
+
+      next();
+    });
+
     this.setupRoutes();
   }
 

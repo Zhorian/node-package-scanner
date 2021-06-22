@@ -8,8 +8,8 @@ export interface IRootController {
 }
 
 interface IGetQuery {
-  packageName?: string;
-  versionOrTag?: string;
+  packagename?: string;
+  versionortag?: string;
 }
 
 @injectable()
@@ -21,22 +21,22 @@ export class RootController implements IRootController {
   }
 
   index = async (req: Request, res: Response) => {
-    const { packageName, versionOrTag }: IGetQuery = req.query;
-    if ((packageName ?? '') === '') {
+    const { packagename, versionortag }: IGetQuery = req.query;
+    if ((packagename ?? '') === '') {
       res
         .status(400)
         .send({ message: 'packageName not provided' });
       return;
     }
 
-    if ((versionOrTag ?? '') === '') {
+    if ((versionortag ?? '') === '') {
       res
         .status(400)
         .send({ message: 'versionOrTag not provided' });
       return;
     }
 
-    const dependencies = await this.dependencyService.getDependencies(packageName as string, versionOrTag as string);
+    const dependencies = await this.dependencyService.getDependencies(packagename as string, versionortag as string);
 
     res.send(dependencies);
   };
