@@ -28,7 +28,16 @@ export class RootRouter {
      *    tags: []
      *    responses:
      *      200:
-     *        description: Hello World
+     *        description: Success
+     *        schema:
+     *          $ref: "#/definitions/Dependency"
+     *      400:
+     *        description: Error
+     *        schema:
+     *          type: object
+     *          properties:
+     *            message:
+     *              type: string
      */
     this.router.get('/', this.controller.index);
   };
